@@ -24,7 +24,7 @@ var config = getConfig({
   html: function (context) {
     return {
       'index.html': context.defaultTemplate({
-        title: 'auth0 React Sample',
+        title: 'ROS',
         publicPath: isDev ? 'http://localhost:3000/' : '',
         meta: {
           'name': 'auth0 React Sample',

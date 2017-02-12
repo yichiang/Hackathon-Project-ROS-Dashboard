@@ -1,10 +1,11 @@
+
 'use strict'
 
 var http = require('http');
 var express = require('express');
 var bodyParser = require('body-parser');
 
-var port = process.env.PORT||4500;
+var port = process.env.PORT||3000;
 
 var app = express();
 
@@ -17,6 +18,6 @@ app.get('/', function(req,res){
 
 
 app.listen(port, function() {
-    console.log('listening on port ' + port);
+    console.log('aOne listening on port ' + port);
 
 });
