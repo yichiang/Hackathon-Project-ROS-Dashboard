@@ -16,7 +16,6 @@
   margin-left: 200px;
   width: 120px;
   height: 60px;
-  /*height: 50px;*/
 }
 
 .hideLoginIcon {
@@ -30,8 +29,8 @@
   position: relative;
   display: flex;
   -webkit-box-shadow: -2px -7px 30px 0px rgba(0,0,0,0.75);
--moz-box-shadow: -2px -7px 30px 0px rgba(0,0,0,0.75);
-box-shadow: -2px -7px 30px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: -2px -7px 30px 0px rgba(0,0,0,0.75);
+  box-shadow: -2px -7px 30px 0px rgba(0,0,0,0.75);
 }
 
 .avatar {
@@ -56,6 +55,9 @@ box-shadow: -2px -7px 30px 0px rgba(0,0,0,0.75);
   overflow-x: hidden;
   transition: 0.5s;
   position: fixed;
+  -webkit-box-shadow: -2px -7px 30px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: -2px -7px 30px 0px rgba(0,0,0,0.75);
+  box-shadow: -2px -7px 30px 0px rgba(0,0,0,0.75);
 }
 
 .closeSideBar {
@@ -67,9 +69,8 @@ box-shadow: -2px -7px 30px 0px rgba(0,0,0,0.75);
 
 .board {
   margin-left: 200px;
-  width: 80%;
+  width: 100%;
   padding: 40px;
-  display: flex;
   position: relative;
 }
 
@@ -96,6 +97,8 @@ box-shadow: -2px -7px 30px 0px rgba(0,0,0,0.75);
   display: flex;
 }
 .mainPanel {
+  display: flex;
+  flex-wrap: wrap;
   width: 100%;
 }
 
@@ -141,6 +144,7 @@ box-shadow: -2px -7px 30px 0px rgba(0,0,0,0.75);
   margin: 10px;
   padding: 20px;
   border: 2px solid black;
+  width: 100%;
 }
 
 .cardTitle {
@@ -198,5 +202,21 @@ box-shadow: -2px -7px 30px 0px rgba(0,0,0,0.75);
 
 .listReview > p {
   width: 25%;
-  /*margin-right: 5px;*/
+}
+
+.customersAvatar {
+  width: 40px;
+  height: 40px;
+}
+
+
+.mdCard {
+  width: 500px;
+  flex: 0 0 500px;
+  height: 268px;
+}
+
+.bgCard {
+  width: 560px;
+  flex: 0 0 560px;
 }

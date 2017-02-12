@@ -41,13 +41,13 @@ export class Dashboard extends React.Component {
     return (
       <div className={styles.mainPanel}>
 
-        <div className={styles.panelCard}>
+        <div className={[styles.panelCard, styles.mdCard].join(' ')}>
           <div className={styles.cardTitle}>
           <p>Receive 5 Stars by dishes</p>
           <FormGroup controlId="formControlsSelect">
            <FormControl componentClass="select" placeholder="select" onChange = {this.props.toggleDishChioce.bind(this)}>
-             <option value="select"> Pie Chart </option>
              <option value="other"> Progree Bar </option>
+             <option value="select"> Pie Chart </option>
            </FormControl>
          </FormGroup>
         </div>
@@ -115,11 +115,10 @@ export class Dashboard extends React.Component {
         </div>
         }
         </div>
-        <div className={styles.panelCard}>
+        <div className={[styles.panelCard, styles.bgCard].join(' ')}>
           <div className={styles.cardTitle}>
           <p>Last Week Feedback vs This Week Feedback</p>
           <FormGroup controlId="formControlsSelect">
-           {/* <ControlLabel>Select</ControlLabel> */}
            <FormControl componentClass="select" placeholder="select" onChange = {this.props.toggleChioce.bind(this)}>
              <option value="select">Bar Chart </option>
              <option value="other"> Area Chart </option>

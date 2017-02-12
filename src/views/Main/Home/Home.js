@@ -73,7 +73,8 @@ export class Home extends React.Component {
             <span
               className={['glyphicon glyphicon-th-list', styles.toggleIcon].join(' ')}
               onClick={this.toggleSideBar.bind(this)}
-            ></span>
+            >              
+            </span>
           {this.state.currentTabs == 'dashboard' &&  <Dashboard
               showDefaultDishChart={this.state.showDefaultDishChart}
               showDefaultChart={this.state.showDefaultChart}
