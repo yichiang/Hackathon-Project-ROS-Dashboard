@@ -60,7 +60,7 @@ export class Dashboard extends React.Component {
             <Modal.Header closeButton>
             <Modal.Title>
               {this.state.selectedCustomer? selectedCustomer.first_name +' ' + selectedCustomer.last_name : null}
-              <Button onClick={this.close.bind(this)}>Cancel</Button>
+              {/* <Button onClick={this.close.bind(this)}>Cancel</Button> */}
             </Modal.Title>
             </Modal.Header>
             <Modal.Body>
@@ -87,7 +87,7 @@ export class Dashboard extends React.Component {
            </FormGroup>
             </Modal.Body>
             <Modal.Footer>
-             <Button onClick={this.close.bind(this)}>Apply & Cancel</Button>
+             <Button onClick={this.close.bind(this)}> Submit </Button>
            </Modal.Footer>
           </Modal>
         }
@@ -99,7 +99,7 @@ export class Dashboard extends React.Component {
          </div>
         } */}
         <div className={[styles.panelCard].join(' ')}>
-          <p className={styles.titleHeader}>Newest 5 tops reviews</p>
+          <p className={styles.titleHeader}>My Latest Reviews</p>
             <div className={styles.logs}>
             {logs.slice(0, 5).map((x,index) =>{
               const logDateTime = x.date +' '+ x.time;
@@ -119,7 +119,7 @@ export class Dashboard extends React.Component {
 
         <div className={[styles.panelCard, styles.mdCard].join(' ')}>
           <div className={styles.cardTitle}>
-          <p className={styles.titleHeader}>Receive 5 Stars by dishes</p>
+          <p className={styles.titleHeader}> 5 Star Menu Items</p>
           <FormGroup controlId="formControlsSelect">
            <FormControl componentClass="select" placeholder="select" onChange = {this.props.toggleDishChioce.bind(this)}>
              <option value="other"> Progree Bar </option>
@@ -209,6 +209,7 @@ export class Dashboard extends React.Component {
                <Legend width={100} wrapperStyle={{ top: 40, right: 20, backgroundColor: '#f5f5f5', border: '1px solid #d5d5d5', borderRadius: 3, lineHeight: '40px' }} />
                <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
                <Bar type="monotone" dataKey="now" fill="#8884d8" barSize={30} />
+               <Bar type="monotone" dataKey="past" fill="#82ca9d" barSize={30} />
              </BarChart>:
             <AreaChart width={500} height={250} data={dataAreaChart}
             margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>

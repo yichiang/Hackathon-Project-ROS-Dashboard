@@ -33,7 +33,7 @@ export class SideBar extends React.Component {
               All Customers
             </div>
             <div className={styles.tab} onClick ={() => this.props.onClickTab('reward')}>
-              <span className={"glyphicon glyphicon-bookmark"}></span>
+              <span className={"glyphicon glyphicon-star"}></span>
               Send Reward
             </div>
             <div className={styles.tab} onClick ={() => this.props.onClickTab('menu')}>
