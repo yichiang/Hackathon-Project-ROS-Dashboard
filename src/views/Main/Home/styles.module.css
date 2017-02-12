@@ -1,3 +1,105 @@
 .root{
   text-align: center;
 }
+
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.loginIcon {
+  width: 50px;
+  height: 50px;
+}
+
+
+.dashboard {
+  position: relative;
+  display: flex;
+  -webkit-box-shadow: -2px -7px 30px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: -2px -7px 30px 0px rgba(0,0,0,0.75);
+box-shadow: -2px -7px 30px 0px rgba(0,0,0,0.75);
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  color: rgba(255,255,255,.84);
+}
+
+.sideBar {
+  display: flex;
+  flex-direction: column;
+  /*justify-content: center;*/
+  background-color: black;
+  color: white;
+  width: 200px;
+  height: 100vh;
+}
+
+.board {
+  padding: 40px;
+  display: flex;
+      position: relative;
+}
+
+.toggleIcon {
+  color: #3f51b5;
+  position: absolute;
+  top: 20px;
+  left: 50px;
+  cursor: pointer;
+  /*font-size: 50px;*/
+}
+
+.toggleIcon::before{
+  font-size: 20px;
+}
+
+.tab {
+  /*height: 55px;*/
+  background-color: #009696;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  padding: 40px 0;
+  /*justify-content: space-between;*/
+  /*margin: 0;*/
+  text-transform: uppercase;
+  font-family: 'Pathway Gothic One', sans-serif;
+}
+
+.tab > span {
+  margin-right: 5px;
+  /*color: red;*/
+}
+
+.panelCard {
+  /*width: 500px;*/
+  margin: 10px;
+  padding: 20px;
+  border: 2px solid black;
+}
+
+.cardTitle {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.barAndText {
+  display: flex;
+  /*flex-direction: column;*/
+  width: 100%;
+  text-align: left;
+}
+
+.bars {
+  width: 57%;
+}

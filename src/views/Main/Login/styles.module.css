@@ -5,6 +5,8 @@
   padding: 20px;
 }*/
 
+
+/*need to be wrap to compoment*/
 .nav {
   display: flex;
   justify-content: space-between;
