@@ -188,3 +188,15 @@ box-shadow: -2px -7px 30px 0px rgba(0,0,0,0.75);
   composes: color;
   background-color: #FF8042;
 }
+
+
+/*review*/
+.listReview {
+  display: flex;
+  justify-content: space-between;
+}
+
+.listReview > p {
+  width: 25%;
+  /*margin-right: 5px;*/
+}

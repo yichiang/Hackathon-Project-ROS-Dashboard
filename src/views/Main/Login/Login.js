@@ -49,7 +49,7 @@ export class Login extends React.Component {
     return (
       <div className={styles.root}>
         <div className={styles.nav}>
-          <img className={styles.loginIcon} src="https://www.shareicon.net/download/2016/11/14/852038_amazon.svg"/>
+          <img className={styles.loginIcon} src={require('../rosLogo_Fotor.png')}/>
           <Button onClick={this.toggleAccountWidget.bind(this)}> Log In</Button>
         </div>
         {this.state.showAccountWidget &&<div className={styles.mask}></div>}
