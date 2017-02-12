@@ -50,6 +50,7 @@ export class Home extends React.Component {
 
   state ={
     showDefaultChart: true,
+    showDefaultDishChart: true,
     hideSideBar: true,
   }
 
@@ -76,6 +77,11 @@ export class Home extends React.Component {
     this.setState({showDefaultChart: !this.state.showDefaultChart});
   }
 
+  taggoleDishChioce(){
+    this.setState({showDefaultDishChart: !this.state.showDefaultDishChart});
+  }
+
+
   taggoleSideBar(){
     this.setState({hideSideBar: !this.state.hideSideBar});
   }
@@ -92,7 +98,7 @@ export class Home extends React.Component {
         </div>
         <div className={styles.dashboard}>
           <div className={this.state.hideSideBar? styles.closeSideBar: styles.sideBar}>
-            <div className={ styles.tab}>
+            <div className={ [styles.tab, styles.welcomeText].join(' ')}>
               <img className={styles.avatar} src="https://avatars1.githubusercontent.com/u/17328624?v=3&s=460" />
               Welcome Yi
             </div>
@@ -125,7 +131,7 @@ export class Home extends React.Component {
               onClick={this.taggoleSideBar.bind(this)}
             ></span>
             <div className={styles.mainPanel}>
-              <div className={styles.panelCard}>
+              {/* <div className={styles.panelCard}>
                 <p>Total Received Feedback V.S Avage</p>
                 <div className={styles.barAndText}>
                   <div className={styles.barsTitle}>
@@ -139,57 +145,93 @@ export class Home extends React.Component {
                   </div>
                   <div className={styles.bars}>
                     <div className={styles.bar}>
-                      <ProgressBar now={20} label={'20%'} />
+                      <ProgressBar now={33} label={'33%'} />
                     </div>
                     <div className={styles.bar}>
-                      <ProgressBar now={43} label={'43%'} />
+                      <ProgressBar now={17} label={'17%'} />
                     </div>
                     <div className={styles.bar}>
-                      <ProgressBar now={43} label={'43%'} />
+                      <ProgressBar now={25} label={'25%'} />
                     </div>
                     <div className={styles.bar}>
-                      <ProgressBar now={12} label={'12%'} />
+                      <ProgressBar now={25} label={'25%'} />
                     </div>
                   </div>
+                </div>
+              </div> */}
+              <div className={styles.panelCard}>
+                <div className={styles.cardTitle}>
+                <p>Receive 5 Stars by dishes</p>
+                <FormGroup controlId="formControlsSelect">
+                 <FormControl componentClass="select" placeholder="select" onChange = {this.taggoleDishChioce.bind(this)}>
+                   <option value="select"> Pie Chart </option>
+                   <option value="other"> Progree Bar </option>
+                 </FormControl>
+               </FormGroup>
+              </div>
+               {this.state.showDefaultDishChart ?
+                 <div className={styles.barAndText}>
+                  <div className={styles.barsTitle}>
+                     <p>Barbecue Chicken Sandwiches</p>
+
+                     <p>Chicken Tostadas</p>
+
+                     <p>Fried-Chicken Salad</p>
+
+                     <p>Mediterranean Chicken</p>
+                   </div>
+                   <div className={styles.bars}>
+                     <div className={styles.bar}>
+                       <ProgressBar bsClass={styles.colorA} now={33} label={'33%'} />
+                     </div>
+                     <div className={styles.bar}>
+                       <ProgressBar bsClass={styles.colorB} now={17} label={'17%'} />
+                     </div>
+                     <div className={styles.bar}>
+                       <ProgressBar bsClass={styles.colorC} now={25} label={'25%'} />
+                     </div>
+                     <div className={styles.bar}>
+                       <ProgressBar bsClass={styles.colorD} now={25} label={'25%'} />
+                     </div>
+                   </div>
+               </div>
+               :
+               <div className={styles.pieAndLabel}>
+                 <PieChart width={200} height={200} onMouseEnter={this.onPieEnter}>
+                 <Pie
+                   data={data}
+                   cx={100}
+                   cy={100}
+                   labelLine={false}
+                   label={renderCustomizedLabel}
+                   outerRadius={80}
+                   fill="#8884d8"
+                 >
+                   {
+                     data.map((entry, index) => <Cell fill={COLORS[index % COLORS.length]}/>)
+                   }
+                 </Pie>
+                 </PieChart>
+               <div>
+                 <div className ={ styles.colorAndText}>
+                   <div className={styles.colorBlock} style={{backgroundColor: COLORS[0]}}></div>
+                   <p>Barbecue Chicken Sandwiches</p>
+                 </div>
+                 <div className ={ styles.colorAndText}>
+                   <div className={styles.colorBlock} style={{backgroundColor: COLORS[1]}}></div>
+                   <p>Chicken Tostadas</p>
+                 </div>
+                 <div className ={ styles.colorAndText}>
+                   <div className={styles.colorBlock} style={{backgroundColor: COLORS[2]}}></div>
+                   <p>Fried-Chicken Salad</p>
+                 </div>
+                 <div className ={ styles.colorAndText}>
+                   <div className={styles.colorBlock} style={{backgroundColor: COLORS[3]}}></div>
+                   <p>Mediterranean Chicken</p>
+                 </div>
                 </div>
               </div>
-              <div className={styles.panelCard}>
-                <p>Receive 5 Stars by dishes</p>
-                <div className={styles.pieAndLabel}>
-                  <PieChart width={200} height={200} onMouseEnter={this.onPieEnter}>
-                  <Pie
-                    data={data}
-                    cx={100}
-                    cy={100}
-                    labelLine={false}
-                    label={renderCustomizedLabel}
-                    outerRadius={80}
-                    fill="#8884d8"
-                  >
-                    {
-                      data.map((entry, index) => <Cell fill={COLORS[index % COLORS.length]}/>)
-                    }
-                  </Pie>
-                  </PieChart>
-                <div>
-                  <div className ={ styles.colorAndText}>
-                    <div className={styles.colorBlock} style={{backgroundColor: COLORS[0]}}></div>
-                    <p>Barbecue Chicken Sandwiches</p>
-                  </div>
-                  <div className ={ styles.colorAndText}>
-                    <div className={styles.colorBlock} style={{backgroundColor: COLORS[1]}}></div>
-                    <p>Chicken Tostadas</p>
-                  </div>
-                  <div className ={ styles.colorAndText}>
-                    <div className={styles.colorBlock} style={{backgroundColor: COLORS[2]}}></div>
-                    <p>Fried-Chicken Salad</p>
-                  </div>
-                  <div className ={ styles.colorAndText}>
-                    <div className={styles.colorBlock} style={{backgroundColor: COLORS[3]}}></div>
-                    <p>Mediterranean Chicken</p>
-                  </div>
-                </div>
-                </div>
+              }
               </div>
               <div className={styles.panelCard}>
                 <div className={styles.cardTitle}>
@@ -200,7 +242,7 @@ export class Home extends React.Component {
                    <option value="select">Bar Chart </option>
                    <option value="other"> Area Chart </option>
                  </FormControl>
-               </FormGroup>
+                </FormGroup>
                 </div>
                 {this.state.showDefaultChart?
                   <BarChart width={500} height={250} data={dataAreaChart}>

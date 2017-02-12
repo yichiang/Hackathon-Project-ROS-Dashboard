@@ -39,19 +39,20 @@ box-shadow: -2px -7px 30px 0px rgba(0,0,0,0.75);
   height: 50px;
   border-radius: 100%;
   color: rgba(255,255,255,.84);
+  margin-right: 5px;
 }
 
 .sideBar {
   display: flex;
   flex-direction: column;
-  background-color: black;
+  background-color: #cce6f4;
   color: white;
   width: 200px;
   height: 100vh;
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #111;
+  /*background-color: #111;*/
   overflow-x: hidden;
   transition: 0.5s;
   position: fixed;
@@ -104,7 +105,6 @@ box-shadow: -2px -7px 30px 0px rgba(0,0,0,0.75);
   top: 20px;
   left: 50px;
   cursor: pointer;
-  /*font-size: 50px;*/
 }
 
 .toggleIcon::before{
@@ -112,25 +112,32 @@ box-shadow: -2px -7px 30px 0px rgba(0,0,0,0.75);
 }
 
 .tab {
-  /*height: 55px;*/
-  background-color: #009696;
+  cursor: pointer;
+  background-color: #4BA3C3;
   width: 200px;
   display: flex;
   justify-content: center;
   padding: 40px 0;
-  /*justify-content: space-between;*/
-  /*margin: 0;*/
   text-transform: uppercase;
   font-family: 'Pathway Gothic One', sans-serif;
 }
 
+.welcomeText {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+.tab:hover {
+  background-color: #ba324f;
+
+}
+
 .tab > span {
   margin-right: 5px;
-  /*color: red;*/
 }
 
 .panelCard {
-  /*width: 500px;*/
   margin: 10px;
   padding: 20px;
   border: 2px solid black;
@@ -144,14 +151,40 @@ box-shadow: -2px -7px 30px 0px rgba(0,0,0,0.75);
 
 .barAndText {
   display: flex;
-  /*flex-direction: column;*/
   width: 100%;
+  height: 200px;
+  padding-top: 20px;
   text-align: left;
 }
 
 .barAndText > div:first-child {
   margin-right: 5px;
 }
+
 .bars {
   width: 57%;
+}
+
+.color {
+  color: white;
+  text-align: center;
+}
+.colorA {
+  composes: color;
+  background-color: #0088FE;
+}
+
+.colorB {
+  composes: color;
+  background-color: #00C49F;
+}
+
+.colorC {
+  composes: color;
+  background-color: #FFBB28;
+}
+
+.colorD {
+  composes: color;
+  background-color: #FF8042;
 }
