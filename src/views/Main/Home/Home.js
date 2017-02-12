@@ -5,23 +5,23 @@ import styles from './styles.module.css'
 import {AreaChart, BarChart,Legend, Bar, Area, XAxis, YAxis, CartesianGrid, Tooltip, PieChart, Pie, Sector, Cell } from 'Recharts';
 
 // const data = [
-//       {name: 'Page A', uv: 4000, pv: 2400, amt: 2400},
-//       {name: 'Page B', uv: 3000, pv: 1398, amt: 2210},
-//       {name: 'Page C', uv: 2000, pv: 9800, amt: 2290},
-//       {name: 'Page D', uv: 2780, pv: 3908, amt: 2000},
-//       {name: 'Page E', uv: 1890, pv: 4800, amt: 2181},
-//       {name: 'Page F', uv: 2390, pv: 3800, amt: 2500},
-//       {name: 'Page G', uv: 3490, pv: 4300, amt: 2100},
+//       {name: 'Page A', uv: 4000, past: 2400, amt: 2400},
+//       {name: 'Page B', uv: 3000, past: 1398, amt: 2210},
+//       {name: 'Page C', uv: 2000, past: 9800, amt: 2290},
+//       {name: 'Page D', uv: 2780, past: 3908, amt: 2000},
+//       {name: 'Page E', uv: 1890, past: 4800, amt: 2181},
+//       {name: 'Page F', uv: 2390, past: 3800, amt: 2500},
+//       {name: 'Page G', uv: 3490, past: 4300, amt: 2100},
 // ];
 
 const dataAreaChart = [
-      {name: '05', uv: 4000, pv: 2400, amt: 2400},
-      {name: '06', uv: 3000, pv: 1398, amt: 2210},
-      {name: '07', uv: 2000, pv: 9800, amt: 2290},
-      {name: '08', uv: 2780, pv: 3908, amt: 2000},
-      {name: '09', uv: 1890, pv: 4800, amt: 2181},
-      {name: '10', uv: 2390, pv: 3800, amt: 2500},
-      {name: '11', uv: 3490, pv: 4300, amt: 2100},
+      {name: '05', now: 4000, past: 2400, amt: 2400},
+      {name: '06', now: 3000, past: 1398, amt: 2210},
+      {name: '07', now: 2000, past: 9800, amt: 2290},
+      {name: '08', now: 2780, past: 3908, amt: 2000},
+      {name: '09', now: 1890, past: 4800, amt: 2181},
+      {name: '10', now: 2390, past: 3800, amt: 2500},
+      {name: '11', now: 3490, past: 4300, amt: 2100},
 ];
 
 const data = [{name: 'A', value: 400}, {name: 'B', value: 300},
@@ -87,7 +87,7 @@ export class Home extends React.Component {
         {/* <h2>Home</h2> */}
         {/* <p>Welcome {profile.name}!</p> */}
         <div className={styles.nav}>
-          <img className={styles.loginIcon} src="https://www.shareicon.net/download/2016/11/14/852038_amazon.svg"/>
+          <img className={this.state.hideSideBar? styles.hideLoginIcon : styles.loginIcon} src={require('../rosLogo_Fotor.png')}/>
           <Button onClick={this.logout.bind(this)}>Logout</Button>
         </div>
         <div className={styles.dashboard}>
@@ -154,7 +154,7 @@ export class Home extends React.Component {
                 </div>
               </div>
               <div className={styles.panelCard}>
-                <p>Dish Stars</p>
+                <p>Receive 5 Stars by dishes</p>
                 <div className={styles.pieAndLabel}>
                   <PieChart width={200} height={200} onMouseEnter={this.onPieEnter}>
                   <Pie
@@ -178,15 +178,15 @@ export class Home extends React.Component {
                   </div>
                   <div className ={ styles.colorAndText}>
                     <div className={styles.colorBlock} style={{backgroundColor: COLORS[1]}}></div>
-                    <p>Barbecue Chicken Sandwiches</p>
+                    <p>Chicken Tostadas</p>
                   </div>
                   <div className ={ styles.colorAndText}>
                     <div className={styles.colorBlock} style={{backgroundColor: COLORS[2]}}></div>
-                    <p>Barbecue Chicken Sandwiches</p>
+                    <p>Fried-Chicken Salad</p>
                   </div>
                   <div className ={ styles.colorAndText}>
                     <div className={styles.colorBlock} style={{backgroundColor: COLORS[3]}}></div>
-                    <p>Barbecue Chicken Sandwiches</p>
+                    <p>Mediterranean Chicken</p>
                   </div>
                 </div>
                 </div>
@@ -209,7 +209,7 @@ export class Home extends React.Component {
                      <Tooltip wrapperStyle={{ width: 100, backgroundColor: '#ccc' }} />
                      <Legend width={100} wrapperStyle={{ top: 40, right: 20, backgroundColor: '#f5f5f5', border: '1px solid #d5d5d5', borderRadius: 3, lineHeight: '40px' }} />
                      <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
-                     <Bar type="monotone" dataKey="uv" fill="#8884d8" barSize={30} />
+                     <Bar type="monotone" dataKey="now" fill="#8884d8" barSize={30} />
                    </BarChart>:
                   <AreaChart width={500} height={250} data={dataAreaChart}
                   margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
@@ -227,8 +227,8 @@ export class Home extends React.Component {
                   <YAxis />
                   <CartesianGrid strokeDasharray="3 3" />
                   <Tooltip />
-                  <Area type="monotone" dataKey="uv" stroke="#8884d8" fillOpacity={1} fill="url(#colorUv)" />
-                  <Area type="monotone" dataKey="pv" stroke="#82ca9d" fillOpacity={1} fill="url(#colorPv)" />
+                  <Area type="monotone" dataKey="now" stroke="#8884d8" fillOpacity={1} fill="url(#colorUv)" />
+                  <Area type="monotone" dataKey="past" stroke="#82ca9d" fillOpacity={1} fill="url(#colorPv)" />
                 </AreaChart>
                 }
                 <p>Feburary</p>
