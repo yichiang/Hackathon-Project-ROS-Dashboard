@@ -64,11 +64,13 @@
     "auth0-js": "^8.0.4",
     "bootstrap": "^3.3.7",
     "classnames": "^2.2.5",
+    "firebase": "^3.6.9",
     "jwt-decode": "^2.1.0",
     "react": "^15.3.1",
     "react-bootstrap": "^0.30.0-rc.1",
     "react-dom": "^15.3.1",
     "react-router": "^2.8.0",
+    "reactfire": "^1.0.0",
     "recharts": "^0.20.6"
   }
 }
