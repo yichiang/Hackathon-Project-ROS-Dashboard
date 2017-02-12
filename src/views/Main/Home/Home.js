@@ -2,7 +2,7 @@ import React, { PropTypes as T } from 'react'
 import {Button,ProgressBar, FormGroup, ControlLabel, FormControl} from 'react-bootstrap'
 import AuthService from 'utils/AuthService'
 import styles from './styles.module.css'
-import {AreaChart, BarChart,Legend, Bar, Area, XAxis, YAxis, CartesianGrid, Tooltip} from 'Recharts';
+import {AreaChart, BarChart,Legend, Bar, Area, XAxis, YAxis, CartesianGrid, Tooltip, PieChart, Pie, Sector, Cell } from 'Recharts';
 
 // const data = [
 //       {name: 'Page A', uv: 4000, pv: 2400, amt: 2400},
@@ -24,6 +24,25 @@ const dataAreaChart = [
       {name: '11', uv: 3490, pv: 4300, amt: 2100},
 ];
 
+const data = [{name: 'A', value: 400}, {name: 'B', value: 300},
+                  {name: 'C', value: 300}, {name: 'D', value: 200}];
+const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
+
+const RADIAN = Math.PI / 180;
+
+const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
+ 	const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
+  const x  = cx + radius * Math.cos(-midAngle * RADIAN);
+  const y = cy  + radius * Math.sin(-midAngle * RADIAN);
+  console.log(cx,cy, midAngle, innerRadius, outerRadius, percent, index );
+  return (
+    <text x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'} 	dominantBaseline="central">
+    	{`${(percent * 100).toFixed(0)}%`}
+    </text>
+  );
+};
+
+
 export class Home extends React.Component {
   static contextTypes = {
     router: T.object
@@ -31,6 +50,7 @@ export class Home extends React.Component {
 
   state ={
     showDefaultChart: true,
+    hideSideBar: true,
   }
 
   static propTypes = {
@@ -56,6 +76,10 @@ export class Home extends React.Component {
     this.setState({showDefaultChart: !this.state.showDefaultChart});
   }
 
+  taggoleSideBar(){
+    this.setState({hideSideBar: !this.state.hideSideBar});
+  }
+
   render() {
     const { profile } = this.state
     return (
@@ -67,7 +91,7 @@ export class Home extends React.Component {
           <Button onClick={this.logout.bind(this)}>Logout</Button>
         </div>
         <div className={styles.dashboard}>
-          <div className={styles.sideBar}>
+          <div className={this.state.hideSideBar? styles.closeSideBar: styles.sideBar}>
             <div className={ styles.tab}>
               <img className={styles.avatar} src="https://avatars1.githubusercontent.com/u/17328624?v=3&s=460" />
               Welcome Yi
@@ -93,8 +117,13 @@ export class Home extends React.Component {
               InBox
             </div>
           </div>
-          <div className={styles.board}>
-            <span className={['glyphicon glyphicon-th-list', styles.toggleIcon].join(' ')}></span>
+          <div className={this.state.hideSideBar? styles.closeBoard : styles.board}>
+
+          {/* <div className={this.state.hideSideBar? styles.board: styles.pullRightBoard}> */}
+            <span
+              className={['glyphicon glyphicon-th-list', styles.toggleIcon].join(' ')}
+              onClick={this.taggoleSideBar.bind(this)}
+            ></span>
             <div className={styles.mainPanel}>
               <div className={styles.panelCard}>
                 <p>Total Received Feedback V.S Avage</p>
@@ -122,6 +151,44 @@ export class Home extends React.Component {
                       <ProgressBar now={12} label={'12%'} />
                     </div>
                   </div>
+                </div>
+              </div>
+              <div className={styles.panelCard}>
+                <p>Dish Stars</p>
+                <div className={styles.pieAndLabel}>
+                  <PieChart width={200} height={200} onMouseEnter={this.onPieEnter}>
+                  <Pie
+                    data={data}
+                    cx={100}
+                    cy={100}
+                    labelLine={false}
+                    label={renderCustomizedLabel}
+                    outerRadius={80}
+                    fill="#8884d8"
+                  >
+                    {
+                      data.map((entry, index) => <Cell fill={COLORS[index % COLORS.length]}/>)
+                    }
+                  </Pie>
+                  </PieChart>
+                <div>
+                  <div className ={ styles.colorAndText}>
+                    <div className={styles.colorBlock} style={{backgroundColor: COLORS[0]}}></div>
+                    <p>Barbecue Chicken Sandwiches</p>
+                  </div>
+                  <div className ={ styles.colorAndText}>
+                    <div className={styles.colorBlock} style={{backgroundColor: COLORS[1]}}></div>
+                    <p>Barbecue Chicken Sandwiches</p>
+                  </div>
+                  <div className ={ styles.colorAndText}>
+                    <div className={styles.colorBlock} style={{backgroundColor: COLORS[2]}}></div>
+                    <p>Barbecue Chicken Sandwiches</p>
+                  </div>
+                  <div className ={ styles.colorAndText}>
+                    <div className={styles.colorBlock} style={{backgroundColor: COLORS[3]}}></div>
+                    <p>Barbecue Chicken Sandwiches</p>
+                  </div>
+                </div>
                 </div>
               </div>
               <div className={styles.panelCard}>
@@ -166,6 +233,7 @@ export class Home extends React.Component {
                 }
                 <p>Feburary</p>
             </div>
+
             </div>
           </div>
         </div>

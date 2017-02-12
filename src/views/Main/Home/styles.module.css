@@ -36,17 +36,58 @@ box-shadow: -2px -7px 30px 0px rgba(0,0,0,0.75);
 .sideBar {
   display: flex;
   flex-direction: column;
-  /*justify-content: center;*/
   background-color: black;
   color: white;
   width: 200px;
   height: 100vh;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  position: fixed;
+}
+
+.closeSideBar {
+  left: -200px;
+  position: absolute;
+  transition: 0.5s;
+  transform: translateX(0);
 }
 
 .board {
+  margin-left: 200px;
+  width: 80%;
   padding: 40px;
   display: flex;
-      position: relative;
+  position: relative;
+}
+
+.closeBoard {
+  composes: board;
+  margin-left: 0;
+  transition: margin-left .5s;
+
+}
+
+.colorBlock {
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  margin-right: 10px;
+}
+
+.pieAndLabel {
+  display: flex;
+  align-items: center;
+}
+
+.colorAndText {
+  display: flex;
+}
+.mainPanel {
+  width: 100%;
 }
 
 .toggleIcon {
@@ -100,6 +141,9 @@ box-shadow: -2px -7px 30px 0px rgba(0,0,0,0.75);
   text-align: left;
 }
 
+.barAndText > div:first-child {
+  margin-right: 5px;
+}
 .bars {
   width: 57%;
 }
