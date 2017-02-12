@@ -102,7 +102,7 @@ export class Login extends React.Component {
           <p>Sell, service, market, and connect to grow your business every day.</p>
           <Button className={styles.signUpButton}>Join For One month Free</Button>
         </div>
-      </div>
+        </div>
       </div>
     )
   }

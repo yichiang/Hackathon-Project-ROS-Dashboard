@@ -1,11 +1,14 @@
-import React, { PropTypes as T } from 'react'
-import {Button,ProgressBar, FormGroup, ControlLabel, FormControl} from 'react-bootstrap'
+import React, { PropTypes as T } from 'react';
+import {Button,ProgressBar,Checkbox, Modal, FormGroup, ControlLabel, FormControl} from 'react-bootstrap';
 // import AuthService from 'utils/AuthService'
-import styles from './styles.module.css'
+import styles from './styles.module.css';
 import {AreaChart, BarChart,Legend, Bar, Area, XAxis, YAxis, CartesianGrid, Tooltip, PieChart, Pie, Sector, Cell } from 'Recharts';
 
 // import {SideBar} from './SideBar'
+import {logs} from '../reviewsData';
+import {RatingBar} from './RatingBar';
 
+import moment from 'moment';
 
 const dataAreaChart = [
       {name: '05', now: 4000, past: 2400, amt: 2400},
@@ -34,16 +37,89 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
   );
 };
 
-
 export class Dashboard extends React.Component {
 
+  state ={ selectedCustomer: null, showModal: false}
+
+  close() {
+    this.setState({ showModal: false });
+  }
+
+  open() {
+    this.setState({ showModal: true });
+  }
+
   render() {
+    const {selectedCustomer} = this.state;
     return (
       <div className={styles.mainPanel}>
+        {/* {selectedCustomer &&<div className={styles.mask}></div>} */}
+
+        {selectedCustomer &&
+          <Modal show={this.state.showModal} onHide={this.close.bind(this)} className={styles.model}>
+            <Modal.Header closeButton>
+            <Modal.Title>
+              {this.state.selectedCustomer? selectedCustomer.first_name +' ' + selectedCustomer.last_name : null}
+              <Button onClick={this.close.bind(this)}>Cancel</Button>
+            </Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <p>Full Name: {selectedCustomer.first_name +' ' + selectedCustomer.last_name }</p>
+              <p>Review:</p>
+              <p> {selectedCustomer.message}</p>
+              <FormGroup controlId="formControlsTextarea">
+              <ControlLabel>Send Email</ControlLabel>
+              <FormControl componentClass="textarea" placeholder="please leave message" />
+            </FormGroup>
+            <FormGroup>
+              <p><ControlLabel> Give Away </ControlLabel></p>
+             <Checkbox inline>
+               $5 Coupon
+             </Checkbox>
+             {' '}
+             <Checkbox inline>
+               200 points
+             </Checkbox>
+             {' '}
+             <Checkbox inline>
+               1000 points
+             </Checkbox>
+           </FormGroup>
+            </Modal.Body>
+            <Modal.Footer>
+             <Button onClick={this.close.bind(this)}>Apply & Cancel</Button>
+           </Modal.Footer>
+          </Modal>
+        }
+
+        {/* {selectedCustomer &&
+          <div sclassName={styles.model}>
+            <p>Message:</p>
+            <p> {selectedCustomer.message}</p>
+         </div>
+        } */}
+        <div className={[styles.panelCard].join(' ')}>
+          <p className={styles.titleHeader}>Newest 5 tops reviews</p>
+            <div className={styles.logs}>
+            {logs.slice(0, 5).map((x,index) =>{
+              const logDateTime = x.date +' '+ x.time;
+              var dateTime = new Date(logDateTime);
+              return(
+                <div className={styles.PanelLog} onClick={() => {this.setState({selectedCustomer: x}); this.open().bind(this);}}>
+                  <p className={styles.logName}>{x.first_name +' '+ x.last_name}</p>
+                  <p className={styles.messageLog}>{x.message ?x.message.substring(0, 50) +'...': null}</p>
+                  <RatingBar rating = {x.rating} className={styles.ratingP}/>
+                  {/* <p>{x.date +' '+ x.time}</p> */}
+                  <p className={styles.hoursLog}>{moment(dateTime, 'mm/dd/yyyy h:mm A', true).fromNow()}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
 
         <div className={[styles.panelCard, styles.mdCard].join(' ')}>
           <div className={styles.cardTitle}>
-          <p>Receive 5 Stars by dishes</p>
+          <p className={styles.titleHeader}>Receive 5 Stars by dishes</p>
           <FormGroup controlId="formControlsSelect">
            <FormControl componentClass="select" placeholder="select" onChange = {this.props.toggleDishChioce.bind(this)}>
              <option value="other"> Progree Bar </option>
@@ -117,7 +193,7 @@ export class Dashboard extends React.Component {
         </div>
         <div className={[styles.panelCard, styles.bgCard].join(' ')}>
           <div className={styles.cardTitle}>
-          <p>Last Week Feedback vs This Week Feedback</p>
+          <p className={styles.titleHeader}>Last Week vs This Week </p>
           <FormGroup controlId="formControlsSelect">
            <FormControl componentClass="select" placeholder="select" onChange = {this.props.toggleChioce.bind(this)}>
              <option value="select">Bar Chart </option>
@@ -158,7 +234,6 @@ export class Dashboard extends React.Component {
         </div>
 
       </div>
-
     )
   }
 }

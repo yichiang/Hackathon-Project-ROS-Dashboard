@@ -125,6 +125,10 @@
   font-family: 'Pathway Gothic One', sans-serif;
 }
 
+.activeTab{
+  background-color: #a01f1c;
+}
+
 .welcomeText {
   justify-content: center;
   display: flex;
@@ -145,6 +149,9 @@
   padding: 20px;
   border: 2px solid black;
   width: 100%;
+  -webkit-box-shadow: 0px -2px 78px -20px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px -2px 78px -20px rgba(0,0,0,0.75);
+  box-shadow: 0px -2px 78px -20px rgba(0,0,0,0.75);
 }
 
 .cardTitle {
@@ -193,7 +200,39 @@
   background-color: #FF8042;
 }
 
+/*dashbaord*/
 
+.logs {
+  text-align: left;
+  /*display: flex;
+  flex-direction: column;
+  justify-content: flex-start;*/
+}
+
+.PanelLog {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid black;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+.PanelLog:hover {
+  border-bottom: 2px solid #e50914;
+  color: #e50914;
+}
+
+.logName {
+  width: 134px
+}
+
+.messageLog {
+  width: 400px;
+}
+
+.hoursLog {
+  width: 200px;
+}
 /*review*/
 .listReview {
   display: flex;
@@ -219,4 +258,53 @@
 .bgCard {
   width: 560px;
   flex: 0 0 560px;
+}
+
+.titleHeader {
+  text-transform: capitalize;
+}
+
+/*model*/
+/*.mask {
+  top: -20px;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 10;
+}
+.model {
+  position: absolute;
+  right: 0;
+  left: 0;
+  margin: auto;
+  background-color: #4BA3C3;
+  width: 600px;
+  height: 600px;
+  z-index: 200;
+  -webkit-box-shadow: 0px 3px 79px -12px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 3px 79px -12px rgba(0,0,0,0.75);
+box-shadow: 0px 3px 79px -12px rgba(0,0,0,0.75);
+}*/
+
+.model {
+  /*position: absolute;
+  right: 0;
+  left: 0;
+  margin: auto;
+  background-color:white;
+  width: 600px;
+  height: 600px;
+
+  z-index: 700;*/
+  /*-webkit-box-shadow: 0px 3px 79px -12px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 3px 79px -12px rgba(0,0,0,0.75);
+box-shadow: 0px 3px 79px -12px rgba(0,0,0,0.75);*/
+}
+
+.ratingP {
+  width: 100px;
 }

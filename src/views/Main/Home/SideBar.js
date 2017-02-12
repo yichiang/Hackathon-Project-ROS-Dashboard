@@ -20,7 +20,7 @@ export class SideBar extends React.Component {
               <img className={styles.avatar} src="https://avatars1.githubusercontent.com/u/17328624?v=3&s=460" />
               Welcome {this.props.name}
             </div>
-            <div className={styles.tab} onClick ={() => this.props.onClickTab('dashboard')}>
+            <div className={[styles.tab, styles.activeTab].join(' ')} onClick ={() => this.props.onClickTab('dashboard')}>
               <span className={"glyphicon glyphicon-home"}></span>
               Dashboard
             </div>
