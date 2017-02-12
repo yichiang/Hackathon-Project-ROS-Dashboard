@@ -67,13 +67,14 @@ export class Home extends React.Component {
           <SideBar
             hideSideBar={this.state.hideSideBar}
             name={profile.name}
+            currentTabs ={this.state.currentTabs}
             onClickTab ={this.changeTab.bind(this)}
           />
           <div className={this.state.hideSideBar? styles.closeBoard : styles.board}>
             <span
               className={['glyphicon glyphicon-th-list', styles.toggleIcon].join(' ')}
               onClick={this.toggleSideBar.bind(this)}
-            >              
+            >
             </span>
           {this.state.currentTabs == 'dashboard' &&  <Dashboard
               showDefaultDishChart={this.state.showDefaultDishChart}

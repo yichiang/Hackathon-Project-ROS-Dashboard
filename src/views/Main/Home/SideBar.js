@@ -18,33 +18,33 @@ export class SideBar extends React.Component {
           <div className={this.props.hideSideBar? styles.closeSideBar: styles.sideBar}>
             <div className={ [styles.tab, styles.welcomeText].join(' ')}>
               <img className={styles.avatar} src="https://avatars1.githubusercontent.com/u/17328624?v=3&s=460" />
-              Welcome {this.props.name}
+                Welcome {this.props.name}
             </div>
-            <div className={[styles.tab, styles.activeTab].join(' ')} onClick ={() => this.props.onClickTab('dashboard')}>
+            <div className={[styles.tab, this.props.currentTabs ==='dashboard' ? styles.activeTab : null].join(' ')} onClick ={() => this.props.onClickTab('dashboard')}>
               <span className={"glyphicon glyphicon-home"}></span>
               Dashboard
             </div>
-            <div className={styles.tab} onClick ={() => this.props.onClickTab('reviews')}>
+            <div className={[styles.tab, this.props.currentTabs ==='reviews' ? styles.activeTab : null].join(' ')} onClick ={() => this.props.onClickTab('reviews')}>
               <span className={"glyphicon glyphicon-file"}></span>
               All Reviews
             </div>
-            <div className={styles.tab} onClick ={() => this.props.onClickTab('customers')}>
+            <div className={[styles.tab, this.props.currentTabs==='customers' ? styles.activeTab : null].join(' ')} onClick ={() => this.props.onClickTab('customers')}>
               <span className={"glyphicon glyphicon-lock"}></span>
               All Customers
             </div>
-            <div className={styles.tab} onClick ={() => this.props.onClickTab('reward')}>
+            <div className={[styles.tab, this.props.currentTabs==='reward' ? styles.activeTab : null].join(' ')} onClick ={() => this.props.onClickTab('reward')}>
               <span className={"glyphicon glyphicon-star"}></span>
               Send Reward
             </div>
-            <div className={styles.tab} onClick ={() => this.props.onClickTab('menu')}>
+            <div className={[styles.tab, this.props.currentTabs==='menu' ? styles.activeTab : null].join(' ')} onClick ={() => this.props.onClickTab('menu')}>
               <span className={"glyphicon glyphicon-plus"}></span>
               Add Menu
             </div>
-            <div className={styles.tab} onClick ={() => this.props.onClickTab('feedback')}>
+            <div className={[styles.tab, this.props.currentTabs==='feedback' ? styles.activeTab : null].join(' ')} onClick ={() => this.props.onClickTab('feedback')}>
               <span className={"glyphicon glyphicon-ok-sign"}></span>
               Add FeedBack
             </div>
-            <div className={styles.tab} onClick ={() => this.props.onClickTab('customers')}>
+            <div className={[styles.tab, this.props.currentTabs==='inbox' ? styles.activeTab : null].join(' ')} onClick ={() => this.props.onClickTab('inbox')}>
               <span className={"glyphicon glyphicon-envelope"}></span>
               InBox
             </div>
