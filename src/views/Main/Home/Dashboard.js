@@ -122,7 +122,7 @@ export class Dashboard extends React.Component {
           <p className={styles.titleHeader}> 5 Star Menu Items</p>
           <FormGroup controlId="formControlsSelect">
            <FormControl componentClass="select" placeholder="select" onChange = {this.props.toggleDishChioce.bind(this)}>
-             <option value="other"> Progree Bar </option>
+             <option value="other"> Progress Bar </option>
              <option value="select"> Pie Chart </option>
            </FormControl>
          </FormGroup>
