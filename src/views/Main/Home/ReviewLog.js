@@ -1,8 +1,8 @@
 import React, { PropTypes as T } from 'react'
-import {Button, Panel, ProgressBar, FormGroup, ControlLabel, FormControl} from 'react-bootstrap'
+import { Button, Panel } from 'react-bootstrap'
 import styles from './styles.module.css'
-import {logs} from '../reviewsData'
-import {ReviewDetail} from './ReviewDetail'
+import { logs } from '../reviewsData'
+import { ReviewDetail } from './ReviewDetail'
 
 export class ReviewLog extends React.Component {
   state = {currentCustomer: -1}
@@ -18,24 +18,25 @@ export class ReviewLog extends React.Component {
           {logs.map((x, index) => {
             return(
               <Panel bsStyle="primary">
-
-               <div className={styles.listReview}>
-                 <img
-                   src={x.gender === 'F'? require('../avatar_F.png'): require('../avatar_M.png')}
-                   className={styles.customersAvatar}
-                />
-                 <p>{x.first_name +' '+  x.last_name}</p>
-                 <p>Rating: {x.rating}/5</p>
-                 <p>Date: {x.date}</p>
-                 <Button onClick={() => this.viewCustomerDetail(x)}>
-                   Details
-                   <span className={"glyphicon glyphicon-chevron-right"}></span>
-                 </Button>
-              </div>
-               </Panel>
+                 <div className={styles.listReview}>
+                   <img
+                     src={x.gender === 'F'? require('../avatar_F.png'): require('../avatar_M.png')}
+                     className={styles.customersAvatar}
+                  />
+                   <p>{x.first_name +' '+  x.last_name}</p>
+                   <p>Rating: {x.rating}/5</p>
+                   <p>Date: {x.date}</p>
+                   <Button onClick={() => this.viewCustomerDetail(x)}>
+                     Details
+                     <span className={"glyphicon glyphicon-chevron-right"}></span>
+                   </Button>
+                </div>
+              </Panel>
             );
           })}
-        </div>: <ReviewDetail customer={this.state.currentCustomer}/>}
+        </div>:
+        <ReviewDetail customer={this.state.currentCustomer}/>
+        }
       </div>
     )
   }

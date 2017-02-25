@@ -2,7 +2,6 @@
   text-align: center;
 }
 
-
 .nav {
   display: flex;
   justify-content: space-between;
@@ -24,12 +23,9 @@
   transition: margin-left .5s;
 }
 
-
 .dashboard {
   position: relative;
   display: flex;
-  -webkit-box-shadow: -2px -7px 30px 0px rgba(0,0,0,0.75);
-  -moz-box-shadow: -2px -7px 30px 0px rgba(0,0,0,0.75);
   box-shadow: -2px -7px 30px 0px rgba(0,0,0,0.75);
 }
 
@@ -51,12 +47,9 @@
   z-index: 1;
   top: 0;
   left: 0;
-  /*background-color: #111;*/
   overflow-x: hidden;
   transition: 0.5s;
   position: fixed;
-  -webkit-box-shadow: -2px -7px 30px 0px rgba(0,0,0,0.75);
-  -moz-box-shadow: -2px -7px 30px 0px rgba(0,0,0,0.75);
   box-shadow: -2px -7px 30px 0px rgba(0,0,0,0.75);
 }
 
@@ -149,8 +142,6 @@
   padding: 20px;
   border: 2px solid black;
   width: 100%;
-  -webkit-box-shadow: 0px -2px 78px -20px rgba(0,0,0,0.75);
-  -moz-box-shadow: 0px -2px 78px -20px rgba(0,0,0,0.75);
   box-shadow: 0px -2px 78px -20px rgba(0,0,0,0.75);
 }
 
@@ -204,9 +195,6 @@
 
 .logs {
   text-align: left;
-  /*display: flex;
-  flex-direction: column;
-  justify-content: flex-start;*/
 }
 
 .PanelLog {
@@ -262,47 +250,6 @@
 
 .titleHeader {
   text-transform: capitalize;
-}
-
-/*model*/
-/*.mask {
-  top: -20px;
-  width: 100vw;
-  height: 100vh;
-  background-color: #000;
-  opacity: 0.6;
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 10;
-}
-.model {
-  position: absolute;
-  right: 0;
-  left: 0;
-  margin: auto;
-  background-color: #4BA3C3;
-  width: 600px;
-  height: 600px;
-  z-index: 200;
-  -webkit-box-shadow: 0px 3px 79px -12px rgba(0,0,0,0.75);
--moz-box-shadow: 0px 3px 79px -12px rgba(0,0,0,0.75);
-box-shadow: 0px 3px 79px -12px rgba(0,0,0,0.75);
-}*/
-
-.model {
-  /*position: absolute;
-  right: 0;
-  left: 0;
-  margin: auto;
-  background-color:white;
-  width: 600px;
-  height: 600px;
-
-  z-index: 700;*/
-  /*-webkit-box-shadow: 0px 3px 79px -12px rgba(0,0,0,0.75);
--moz-box-shadow: 0px 3px 79px -12px rgba(0,0,0,0.75);
-box-shadow: 0px 3px 79px -12px rgba(0,0,0,0.75);*/
 }
 
 .ratingP {

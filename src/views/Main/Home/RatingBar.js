@@ -1,5 +1,4 @@
 import React, { PropTypes as T } from 'react'
-import {Button, Panel, ProgressBar, FormGroup, ControlLabel, FormControl} from 'react-bootstrap'
 import styles from './styles.module.css'
 
 export class RatingBar extends React.Component {

@@ -1,5 +1,5 @@
 import React, { PropTypes as T } from 'react'
-import {Button, Panel, ProgressBar, FormGroup, ControlLabel, FormControl} from 'react-bootstrap'
+import { Panel, FormGroup } from 'react-bootstrap'
 import styles from './styles.module.css'
 
 export class ReviewDetail extends React.Component {

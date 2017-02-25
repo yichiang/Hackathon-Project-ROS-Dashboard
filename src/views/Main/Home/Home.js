@@ -1,10 +1,10 @@
 import React, { PropTypes as T } from 'react'
-import {Button,ProgressBar, FormGroup, ControlLabel, FormControl} from 'react-bootstrap'
+import { Button } from 'react-bootstrap'
 import AuthService from 'utils/AuthService'
 import styles from './styles.module.css'
-import {SideBar} from './SideBar'
-import {Dashboard} from './Dashboard'
-import {ReviewLog} from './ReviewLog'
+import { SideBar } from './SideBar'
+import { Dashboard } from './Dashboard'
+import { ReviewLog } from './ReviewLog'
 
 
 export class Home extends React.Component {

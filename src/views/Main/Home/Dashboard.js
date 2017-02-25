@@ -1,8 +1,8 @@
 import React, { PropTypes as T } from 'react';
 import moment from 'moment';
-import {Button,ProgressBar,Checkbox, Modal, FormGroup, ControlLabel, FormControl} from 'react-bootstrap';
+import { Button,ProgressBar,Checkbox, Modal, FormGroup, ControlLabel, FormControl } from 'react-bootstrap';
 import styles from './styles.module.css';
-import {AreaChart, BarChart,Legend, Bar, Area, XAxis, YAxis, CartesianGrid, Tooltip, PieChart, Pie, Sector, Cell } from 'Recharts';
+import { AreaChart, BarChart,Legend, Bar, Area, XAxis, YAxis, CartesianGrid, Tooltip, PieChart, Pie, Sector, Cell } from 'Recharts';
 import {logs} from '../reviewsData';
 import {RatingBar} from './RatingBar';
 
@@ -52,36 +52,36 @@ export class Dashboard extends React.Component {
         {selectedCustomer &&
           <Modal show={this.state.showModal} onHide={this.close.bind(this)} className={styles.model}>
             <Modal.Header closeButton>
-            <Modal.Title>
-              {this.state.selectedCustomer? selectedCustomer.first_name +' ' + selectedCustomer.last_name : null}
-            </Modal.Title>
+              <Modal.Title>
+                {this.state.selectedCustomer? selectedCustomer.first_name +' ' + selectedCustomer.last_name : null}
+              </Modal.Title>
             </Modal.Header>
             <Modal.Body>
               <p>Full Name: {selectedCustomer.first_name +' ' + selectedCustomer.last_name }</p>
               <p>Review:</p>
               <p> {selectedCustomer.message}</p>
               <FormGroup controlId="formControlsTextarea">
-              <ControlLabel>Send Email</ControlLabel>
-              <FormControl componentClass="textarea" placeholder="please leave message" />
-            </FormGroup>
-            <FormGroup>
-              <p><ControlLabel> Give Away </ControlLabel></p>
-             <Checkbox inline>
-               $5 Coupon
-             </Checkbox>
-             {' '}
-             <Checkbox inline>
-               200 points
-             </Checkbox>
-             {' '}
-             <Checkbox inline>
-               1000 points
-             </Checkbox>
-           </FormGroup>
-            </Modal.Body>
+                <ControlLabel>Send Email</ControlLabel>
+                <FormControl componentClass="textarea" placeholder="please leave message" />
+              </FormGroup>
+              <FormGroup>
+                <p><ControlLabel> Give Away </ControlLabel></p>
+                 <Checkbox inline>
+                   $5 Coupon
+                 </Checkbox>
+                 {' '}
+                 <Checkbox inline>
+                   200 points
+                 </Checkbox>
+                 {' '}
+                 <Checkbox inline>
+                   1000 points
+                 </Checkbox>
+               </FormGroup>
+             </Modal.Body>
             <Modal.Footer>
-             <Button onClick={this.close.bind(this)}> Submit </Button>
-           </Modal.Footer>
+              <Button onClick={this.close.bind(this)}> Submit </Button>
+            </Modal.Footer>
           </Modal>
         }
         <div className={[styles.panelCard].join(' ')}>
@@ -104,14 +104,14 @@ export class Dashboard extends React.Component {
 
         <div className={[styles.panelCard, styles.mdCard].join(' ')}>
           <div className={styles.cardTitle}>
-          <p className={styles.titleHeader}> 5 Star Menu Items</p>
-          <FormGroup controlId="formControlsSelect">
-           <FormControl componentClass="select" placeholder="select" onChange = {this.props.toggleDishChioce.bind(this)}>
-             <option value="other"> Progress Bar </option>
-             <option value="select"> Pie Chart </option>
-           </FormControl>
-         </FormGroup>
-        </div>
+            <p className={styles.titleHeader}> 5 Star Menu Items</p>
+            <FormGroup controlId="formControlsSelect">
+             <FormControl componentClass="select" placeholder="select" onChange = {this.props.toggleDishChioce.bind(this)}>
+               <option value="other"> Progress Bar </option>
+               <option value="select"> Pie Chart </option>
+             </FormControl>
+           </FormGroup>
+         </div>
          {this.props.showDefaultDishChart ?
            <div className={styles.barAndText}>
             <div className={styles.barsTitle}>
@@ -141,50 +141,50 @@ export class Dashboard extends React.Component {
          :
          <div className={styles.pieAndLabel}>
            <PieChart width={200} height={200} onMouseEnter={this.props.onPieEnter}>
-           <Pie
-             data={data}
-             cx={100}
-             cy={100}
-             labelLine={false}
-             label={renderCustomizedLabel}
-             outerRadius={80}
-             fill="#8884d8"
-           >
-             {
-               data.map((entry, index) => <Cell fill={COLORS[index % COLORS.length]}/>)
-             }
-           </Pie>
+             <Pie
+               data={data}
+               cx={100}
+               cy={100}
+               labelLine={false}
+               label={renderCustomizedLabel}
+               outerRadius={80}
+               fill="#8884d8"
+             >
+               {
+                 data.map((entry, index) => <Cell fill={COLORS[index % COLORS.length]}/>)
+               }
+             </Pie>
            </PieChart>
-         <div>
-           <div className ={ styles.colorAndText}>
-             <div className={styles.colorBlock} style={{backgroundColor: COLORS[0]}}></div>
-             <p>Barbecue Chicken Sandwiches</p>
-           </div>
-           <div className ={ styles.colorAndText}>
-             <div className={styles.colorBlock} style={{backgroundColor: COLORS[1]}}></div>
-             <p>Chicken Tostadas</p>
-           </div>
-           <div className ={ styles.colorAndText}>
-             <div className={styles.colorBlock} style={{backgroundColor: COLORS[2]}}></div>
-             <p>Fried-Chicken Salad</p>
-           </div>
-           <div className ={ styles.colorAndText}>
-             <div className={styles.colorBlock} style={{backgroundColor: COLORS[3]}}></div>
-             <p>Mediterranean Chicken</p>
-           </div>
+           <div>
+             <div className ={ styles.colorAndText}>
+               <div className={styles.colorBlock} style={{backgroundColor: COLORS[0]}}></div>
+               <p>Barbecue Chicken Sandwiches</p>
+             </div>
+             <div className ={ styles.colorAndText}>
+               <div className={styles.colorBlock} style={{backgroundColor: COLORS[1]}}></div>
+               <p>Chicken Tostadas</p>
+             </div>
+             <div className ={ styles.colorAndText}>
+               <div className={styles.colorBlock} style={{backgroundColor: COLORS[2]}}></div>
+               <p>Fried-Chicken Salad</p>
+             </div>
+             <div className ={ styles.colorAndText}>
+               <div className={styles.colorBlock} style={{backgroundColor: COLORS[3]}}></div>
+               <p>Mediterranean Chicken</p>
+             </div>
+            </div>
           </div>
-        </div>
-        }
+          }
         </div>
         <div className={[styles.panelCard, styles.bgCard].join(' ')}>
           <div className={styles.cardTitle}>
-          <p className={styles.titleHeader}>Last Week vs This Week </p>
-          <FormGroup controlId="formControlsSelect">
-           <FormControl componentClass="select" placeholder="select" onChange = {this.props.toggleChioce.bind(this)}>
-             <option value="select">Bar Chart </option>
-             <option value="other"> Area Chart </option>
-           </FormControl>
-          </FormGroup>
+            <p className={styles.titleHeader}>Last Week vs This Week </p>
+            <FormGroup controlId="formControlsSelect">
+              <FormControl componentClass="select" placeholder="select" onChange = {this.props.toggleChioce.bind(this)}>
+                <option value="select">Bar Chart </option>
+                <option value="other"> Area Chart </option>
+              </FormControl>
+            </FormGroup>
           </div>
           {this.props.showDefaultChart?
             <BarChart width={500} height={250} data={dataAreaChart}>
