@@ -1,12 +1,4 @@
-/*.root{
-width: 80%;
-margin: 0 auto;
-background: #fff;
-padding: 20px;
-}*/
 
-
-/*need to be wrap to compoment*/
 .nav {
   display: flex;
   justify-content: space-between;
@@ -22,10 +14,8 @@ padding: 20px;
 }
 
 .logo {
-  /*margin-left: 200px;*/
   width: 120px;
   height: 60px;
-  /*height: 50px;*/
 }
 
 .iconList {
@@ -110,8 +100,6 @@ padding: 20px;
 
 .words > h1 {
   text-transform: capitalize;
-  /*font-family: 'Slabo 27px', serif;*/
-
 }
 
 .signUpButton {
