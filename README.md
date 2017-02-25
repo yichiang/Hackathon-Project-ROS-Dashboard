@@ -24,15 +24,15 @@ password yi_chiang@outlook.com
 3. [react-bootstrap](https://react-bootstrap.github.io/)
 
 ### Log in with Auth0
-![Log in View](/img/1.PNG)
+![Log in View](/img/1.png)
 ### Dashboard React [ReCharts](http://recharts.org/#/en-US/examples/BarChartWithMinHeight)
-![Dashboard View](/img/2.PNG)
+![Dashboard View](/img/2.png)
 ### More Charts
 
-![Dashboard View](/img/3.PNG)
+![Dashboard View](/img/3.png)
 ### Feedback Logs
 
-![Dashboard View](/img/4.PNG)
+![Dashboard View](/img/4.png)
 ### Close SideBar
 
-![Dashboard View](/img/5.PNG)
+![Dashboard View](/img/5.png)
