@@ -1,9 +1,6 @@
 import React, { PropTypes as T } from 'react'
 import {Button, Panel, ProgressBar, FormGroup, ControlLabel, FormControl} from 'react-bootstrap'
-// import AuthService from 'utils/AuthService'
 import styles from './styles.module.css'
-// import {AreaChart, BarChart,Legend, Bar, Area, XAxis, YAxis, CartesianGrid, Tooltip, PieChart, Pie, Sector, Cell } from 'Recharts';
-//
 import {logs} from '../reviewsData'
 import {ReviewDetail} from './ReviewDetail'
 
@@ -19,7 +16,6 @@ export class ReviewLog extends React.Component {
         {this.state.currentCustomer === -1? <div className={styles.panelCard}>
           <p>Recent Feedback</p>
           {logs.map((x, index) => {
-
             return(
               <Panel bsStyle="primary">
 
@@ -41,7 +37,6 @@ export class ReviewLog extends React.Component {
           })}
         </div>: <ReviewDetail customer={this.state.currentCustomer}/>}
       </div>
-
     )
   }
 }

@@ -2,8 +2,6 @@ import React, { PropTypes as T } from 'react'
 import {Button,ProgressBar, FormGroup, ControlLabel, FormControl} from 'react-bootstrap'
 import AuthService from 'utils/AuthService'
 import styles from './styles.module.css'
-// import {AreaChart, BarChart,Legend, Bar, Area, XAxis, YAxis, CartesianGrid, Tooltip, PieChart, Pie, Sector, Cell } from 'Recharts';
-
 import {SideBar} from './SideBar'
 import {Dashboard} from './Dashboard'
 import {ReviewLog} from './ReviewLog'
@@ -45,7 +43,6 @@ export class Home extends React.Component {
     this.setState({showDefaultDishChart: !this.state.showDefaultDishChart});
   }
 
-
   toggleSideBar(){
     this.setState({hideSideBar: !this.state.hideSideBar});
   }
@@ -63,7 +60,6 @@ export class Home extends React.Component {
           <Button onClick={this.logout.bind(this)}>Logout</Button>
         </div>
         <div className={styles.dashboard}>
-
           <SideBar
             hideSideBar={this.state.hideSideBar}
             name={profile.name}
@@ -72,33 +68,32 @@ export class Home extends React.Component {
           />
           <div className={this.state.hideSideBar? styles.closeBoard : styles.board}>
             <p
-              className={styles.toggleIcon}><span
+              className={styles.toggleIcon}>
+              <span
               className={['glyphicon glyphicon-th-list'].join(' ')}
               onClick={this.toggleSideBar.bind(this)}
-            >
-            </span></p>
-          {this.state.currentTabs == 'dashboard' &&  <Dashboard
-              showDefaultDishChart={this.state.showDefaultDishChart}
-              showDefaultChart={this.state.showDefaultChart}
-              toggleChioce={this.toggleChioce.bind(this)}
-              toggleDishChioce={this.toggleDishChioce.bind(this)}
-            />
-          }
+              >
+              </span>
+            </p>
+            {this.state.currentTabs == 'dashboard' &&  <Dashboard
+                showDefaultDishChart={this.state.showDefaultDishChart}
+                showDefaultChart={this.state.showDefaultChart}
+                toggleChioce={this.toggleChioce.bind(this)}
+                toggleDishChioce={this.toggleDishChioce.bind(this)}
+              />
+            }
 
-          {this.state.currentTabs == 'reviews' &&  <ReviewLog
+            {this.state.currentTabs == 'reviews' &&  <ReviewLog
 
-            />
-          }
-
-          {this.state.currentTabs == 'customers' &&  <Dashboard
-              showDefaultDishChart={this.state.showDefaultDishChart}
-              showDefaultChart={this.state.showDefaultChart}
-              toggleChioce={this.toggleChioce.bind(this)}
-              toggleDishChioce={this.toggleDishChioce.bind(this)}
-            />
-          }
-
-
+              />
+            }
+            {this.state.currentTabs == 'customers' &&  <Dashboard
+                showDefaultDishChart={this.state.showDefaultDishChart}
+                showDefaultChart={this.state.showDefaultChart}
+                toggleChioce={this.toggleChioce.bind(this)}
+                toggleDishChioce={this.toggleDishChioce.bind(this)}
+              />
+            }
           </div>
         </div>
       </div>

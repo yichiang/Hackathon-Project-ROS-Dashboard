@@ -1,14 +1,10 @@
 import React, { PropTypes as T } from 'react';
+import moment from 'moment';
 import {Button,ProgressBar,Checkbox, Modal, FormGroup, ControlLabel, FormControl} from 'react-bootstrap';
-// import AuthService from 'utils/AuthService'
 import styles from './styles.module.css';
 import {AreaChart, BarChart,Legend, Bar, Area, XAxis, YAxis, CartesianGrid, Tooltip, PieChart, Pie, Sector, Cell } from 'Recharts';
-
-// import {SideBar} from './SideBar'
 import {logs} from '../reviewsData';
 import {RatingBar} from './RatingBar';
-
-import moment from 'moment';
 
 const dataAreaChart = [
       {name: '05', now: 4000, past: 2400, amt: 2400},
@@ -53,14 +49,11 @@ export class Dashboard extends React.Component {
     const {selectedCustomer} = this.state;
     return (
       <div className={styles.mainPanel}>
-        {/* {selectedCustomer &&<div className={styles.mask}></div>} */}
-
         {selectedCustomer &&
           <Modal show={this.state.showModal} onHide={this.close.bind(this)} className={styles.model}>
             <Modal.Header closeButton>
             <Modal.Title>
               {this.state.selectedCustomer? selectedCustomer.first_name +' ' + selectedCustomer.last_name : null}
-              {/* <Button onClick={this.close.bind(this)}>Cancel</Button> */}
             </Modal.Title>
             </Modal.Header>
             <Modal.Body>
@@ -91,13 +84,6 @@ export class Dashboard extends React.Component {
            </Modal.Footer>
           </Modal>
         }
-
-        {/* {selectedCustomer &&
-          <div sclassName={styles.model}>
-            <p>Message:</p>
-            <p> {selectedCustomer.message}</p>
-         </div>
-        } */}
         <div className={[styles.panelCard].join(' ')}>
           <p className={styles.titleHeader}>My Latest Reviews</p>
             <div className={styles.logs}>
@@ -109,7 +95,6 @@ export class Dashboard extends React.Component {
                   <p className={styles.logName}>{x.first_name +' '+ x.last_name}</p>
                   <p className={styles.messageLog}>{x.message ?x.message.substring(0, 50) +'...': null}</p>
                   <RatingBar rating = {x.rating} className={styles.ratingP}/>
-                  {/* <p>{x.date +' '+ x.time}</p> */}
                   <p className={styles.hoursLog}>{moment(dateTime, 'mm/dd/yyyy h:mm A', true).fromNow()}</p>
                 </div>
               );
